@@ -1,0 +1,37 @@
+﻿@model List<Department>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Department List</h1>
+
+ <a asp-action="Create" asp-controller="Department">Add Department</a>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+           <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var department in Model)
+        {
+            <tr>
+                <th scope="row">@department.DepartmentId</th>
+                <td>@department.Name</td>
+
+                <td><a asp-controller="Department" asp-action="Details" asp-route-departmentId="@department.DepartmentId">View</a></td>
+                <td><a asp-controller="Department" asp-action="Update" asp-route-departmentId="@department.DepartmentId">Edit</a></td>
+                <td><a asp-controller="Department" asp-action="Delete" asp-route-departmentId="@department.DepartmentId">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
